@@ -8,15 +8,15 @@ export default function Home() {
     <main>
       {/* Hero */}
       <section className="relative section-pad overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-white to-white" />
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gradient-to-br from-[--brand-red-600]/20 to-[--brand-blue-600]/20 blur-3xl" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white to-slate-50" />
+        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gradient-to-br from-[--color-primary]/20 to-[--color-secondary]/20 blur-3xl" />
         <div className="container-responsive grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl sm:text-6xl font-semibold tracking-tight"
+              className="text-5xl sm:text-6xl font-extrabold tracking-tight text-slate-900"
             >
               Gereja yang Mengasihi Kota
             </motion.h1>
@@ -24,7 +24,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.6 }}
-              className="mt-4 text-slate-600 max-w-xl"
+              className="mt-4 text-slate-700 max-w-xl"
             >
               Kami adalah komunitas GPdI yang bertumbuh dalam iman, harapan, dan kasih.
             </motion.p>
@@ -44,7 +44,7 @@ export default function Home() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="glass rounded-3xl p-6"
           >
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[--brand-blue-600]/20 to-[--brand-red-600]/20 grid place-items-center text-slate-700">
+            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[--color-primary]/15 to-[--color-secondary]/15 grid place-items-center text-slate-700">
               <span className="text-sm">Video/Foto Gereja (placeholder)</span>
             </div>
           </motion.div>

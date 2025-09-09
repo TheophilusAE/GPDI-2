@@ -1,24 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  /* High-contrast, comfortable palette */
-  --background: #f8fafc; /* slate-50 */
-  --foreground: #0b1220; /* very dark navy for excellent contrast */
-  --brand-red: #c81e1e; /* strong red for accents */
-  --brand-blue: #1d4ed8; /* accessible primary blue */
+  /* Modern accessible palette */
+  --background: #ffffff;
+  --foreground: #0b1220; /* deep slate */
+  --brand-primary: #2563eb; /* indigo-600 */
+  --brand-primary-700: #1e40af; /* indigo-800 */
+  --brand-secondary: #10b981; /* emerald-500 */
+  --brand-secondary-700: #047857; /* emerald-700 */
+  --brand-accent: #e11d48; /* rose-600 */
   --brand-white: #ffffff;
-  --brand-red-600: #c81e1e;
-  --brand-blue-600: #1d4ed8;
-  --brand-red-700: #991b1b;
-  --brand-blue-700: #1e40af;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--brand-red);
-  --color-secondary: var(--brand-blue);
-  --color-accent: var(--brand-white);
+  --color-primary: var(--brand-primary);
+  --color-secondary: var(--brand-secondary);
+  --color-accent: var(--brand-accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
