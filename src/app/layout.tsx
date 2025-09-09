@@ -17,21 +17,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GPdI Church • Faith, Community, Impact",
-  description: "Portofolio modern gereja: iman, komunitas, dan dampak bagi kota.",
+  title: "GPDI Persadamas Banjarmasin • Faith, Community, Impact",
+  description: "Portofolio modern GPDI Persadamas Banjarmasin: iman, komunitas, dan dampak bagi kota.",
   metadataBase: new URL("https://example.com"),
   openGraph: {
-    title: "GPdI Church • Faith, Community, Impact",
+    title: "GPDI Persadamas Banjarmasin • Faith, Community, Impact",
     description:
-      "Portofolio modern gereja: iman, komunitas, dan dampak bagi kota.",
+      "Portofolio modern GPDI Persadamas Banjarmasin: iman, komunitas, dan dampak bagi kota.",
     type: "website",
     url: "https://example.com",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GPdI Church • Faith, Community, Impact",
+    title: "GPDI Persadamas Banjarmasin • Faith, Community, Impact",
     description:
-      "Portofolio modern gereja: iman, komunitas, dan dampak bagi kota.",
+      "Portofolio modern GPDI Persadamas Banjarmasin: iman, komunitas, dan dampak bagi kota.",
   },
 };
 

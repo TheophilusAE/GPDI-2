@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="md:col-span-5">
           <div className="flex items-center gap-2">
             <span className="inline-block h-8 w-8 rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
-            <span className="font-semibold tracking-tight">GPdI Church</span>
+            <span className="font-semibold tracking-tight">GPDI Persadamas Banjarmasin</span>
           </div>
           <p className="mt-3 text-sm text-slate-300 max-w-sm">
             Komunitas yang bertumbuh dalam iman, melayani kota dengan kasih Kristus.
@@ -40,7 +40,7 @@ export default function Footer() {
       </div>
       <div className="border-t" style={{borderColor: "var(--border-soft)"}}>
         <div className="container-responsive py-6 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between">
-          <p>© {new Date().getFullYear()} GPdI Church. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} GPDI Persadamas Banjarmasin. All rights reserved.</p>
           <p>Desain yang tenang, mudah dibaca, dan aksesibel.</p>
         </div>
       </div>

@@ -37,7 +37,7 @@ export default function Navbar() {
       <div className="container-responsive flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-block h-8 w-8 rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
-          <span className="font-semibold tracking-tight">GPdI Church</span>
+          <span className="font-semibold tracking-tight">GPDI Persadamas Banjarmasin</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
