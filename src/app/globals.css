@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  /* Modern accessible palette */
-  --background: #ffffff;
-  --foreground: #0b1220; /* deep slate */
-  --brand-primary: #2563eb; /* indigo-600 */
-  --brand-primary-700: #1e40af; /* indigo-800 */
-  --brand-secondary: #10b981; /* emerald-500 */
-  --brand-secondary-700: #047857; /* emerald-700 */
-  --brand-accent: #e11d48; /* rose-600 */
+  /* Cyberpunk neon palette */
+  --background: #0b0f1a; /* deep dark */
+  --foreground: #e2e8f0; /* slate-200 */
+  --brand-primary: #ff00e5; /* neon magenta */
+  --brand-primary-700: #cc00b8;
+  --brand-secondary: #00e5ff; /* neon cyan */
+  --brand-secondary-700: #00b3cc;
+  --brand-accent: #ffe600; /* neon yellow */
   --brand-white: #ffffff;
 }
 
@@ -24,13 +24,15 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0b1220; /* deep navy */
-    --foreground: #f1f5f9; /* slate-100 */
+    --background: #060912; /* darker */
+    --foreground: #f8fafc;
   }
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(1200px 800px at 10% 0%, rgba(255,0,229,0.06), transparent 60%),
+    radial-gradient(1200px 800px at 90% 20%, rgba(0,229,255,0.06), transparent 60%),
+    var(--background);
   color: var(--foreground);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
@@ -42,17 +44,20 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-white px-6 py-3 font-medium shadow-md hover:bg-[--brand-red-700] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-black px-6 py-3 font-semibold shadow-[0_0_25px_rgba(255,0,229,0.45)] hover:shadow-[0_0_35px_rgba(255,0,229,0.7)] active:scale-[0.98] transition;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-white px-6 py-3 font-medium shadow-md hover:bg-[--brand-blue-700] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-black px-6 py-3 font-semibold shadow-[0_0_25px_rgba(0,229,255,0.45)] hover:shadow-[0_0_35px_rgba(0,229,255,0.7)] active:scale-[0.98] transition;
 }
 
 .glass {
-  @apply bg-white/60 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/10 shadow-lg;
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.06)];
 }
 
 .section-pad {
   @apply py-20 sm:py-28;
 }
+
+.neon-text-primary { text-shadow: 0 0 8px rgba(255,0,229,0.6), 0 0 22px rgba(255,0,229,0.4); }
+.neon-text-secondary { text-shadow: 0 0 8px rgba(0,229,255,0.6), 0 0 22px rgba(0,229,255,0.4); }

@@ -18,16 +18,16 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <header className="sticky top-0 z-40 bg-black/30 backdrop-blur border-b border-white/10">
       <div className="container-responsive flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-block h-8 w-8 rounded-full bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
-          <span className="font-semibold tracking-tight">GPdI Church</span>
+          <span className="font-semibold tracking-tight neon-text-secondary">GPdI Church</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-slate-700 hover:text-[--color-primary] transition">
+            <Link key={item.href} href={item.href} className="text-sm text-slate-200 hover:text-[--color-primary] transition">
               {item.label}
             </Link>
           ))}
