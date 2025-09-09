@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 import { motion } from "framer-motion";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
@@ -18,10 +19,18 @@ const navItems = [
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [theme, setTheme] = useState<"dark" | "light">(
+    (typeof window !== "undefined" && (localStorage.getItem("theme") as "dark" | "light")) || "dark"
+  );
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <header className="sticky top-0 z-40 bg-[color-mix(in_oklab,var(--surface)_70%,black_30%)]/60 backdrop-blur border-b border-white/10">
@@ -51,6 +60,14 @@ export default function Navbar() {
             );
           })}
           <Link href="#join" className="btn-primary">Bergabung</Link>
+          <button
+            className="ml-2 rounded-full p-2 hover:bg-white/5"
+            aria-label="Toggle theme"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          >
+            {theme === "dark" ? <HiOutlineSun size={18} /> : <HiOutlineMoon size={18} />}
+          </button>
         </nav>
 
         <button className="md:hidden p-2 rounded-md hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Buka menu" aria-expanded={open} aria-controls="mobile-nav">
@@ -82,6 +99,13 @@ export default function Navbar() {
               Bergabung
             </Link>
           </div>
+          <button
+            className="mt-2 rounded-full p-2 hover:bg-white/5"
+            aria-label="Toggle theme"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            {theme === "dark" ? <HiOutlineSun size={18} /> : <HiOutlineMoon size={18} />}
+          </button>
           <button className="absolute top-3 right-4 p-2" aria-label="Tutup menu" onClick={() => setOpen(false)}>
             <HiOutlineX size={22} />
           </button>

@@ -45,11 +45,26 @@ function SplashScreen() {
 
 export default function SplashProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState<"dark" | "light" | null>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1600);
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? window.localStorage.getItem("theme") : null;
+    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = (stored === "dark" || stored === "light") ? stored : (systemDark ? "dark" : "light");
+    setTheme(initial);
+    document.documentElement.setAttribute("data-theme", initial);
+  }, []);
+
+  useEffect(() => {
+    if (!theme) return;
+    document.documentElement.setAttribute("data-theme", theme);
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
 
   return (
     <>

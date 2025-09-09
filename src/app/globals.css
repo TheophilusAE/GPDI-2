@@ -1,18 +1,32 @@
 @import "tailwindcss";
 
-:root {
-  /* Calm, modern palette with strong contrast */
-  --background: #0b1020; /* deep navy */
-  --foreground: #ffffff; /* all text white */
-  --muted: #ffffff; /* all text white */
-  --surface: #0f152a; /* card surface */
-  --surface-2: #0d1326; /* darker surface */
-  --brand-primary: #7c9cff; /* soft indigo */
+/* Theme tokens using [data-theme] */
+[data-theme="dark"] {
+  --background: #0b1020;
+  --foreground: #ffffff;
+  --muted: #ffffff;
+  --surface: #0f152a;
+  --surface-2: #0d1326;
+  --brand-primary: #7c9cff;
   --brand-primary-700: #5c7de6;
-  --brand-secondary: #4ade80; /* soft green for friendliness */
+  --brand-secondary: #4ade80;
   --brand-secondary-700: #22c55e;
-  --brand-accent: #fbbf24; /* warm accent */
+  --brand-accent: #fbbf24;
   --brand-white: #ffffff;
+}
+
+[data-theme="light"] {
+  --background: #ffffff;
+  --foreground: #0b1020;
+  --muted: #0b1020;
+  --surface: #f3f6fb;
+  --surface-2: #e9eef7;
+  --brand-primary: #3b5bdb; /* deeper indigo for light */
+  --brand-primary-700: #364fc7;
+  --brand-secondary: #16a34a;
+  --brand-secondary-700: #15803d;
+  --brand-accent: #d97706;
+  --brand-white: #0b1020; /* contrast text on colored buttons stays dark in light? keep white text -> override in buttons */
 }
 
 @theme inline {
@@ -25,10 +39,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* System preference fallback if no data-theme set */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0f21;
-    --foreground: #f8fafc;
+    --foreground: #ffffff;
   }
 }
 
