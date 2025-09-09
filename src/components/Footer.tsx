@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-white/10 bg-[--surface]">
+    <footer className="mt-20 border-t" style={{borderColor: "var(--border-soft)", backgroundColor: "var(--surface)"}}>
       <div className="container-responsive py-12 grid gap-10 sm:grid-cols-3">
         <div>
           <div className="flex items-center gap-2">
@@ -31,7 +31,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="border-t border-white/10">
+      <div className="border-t" style={{borderColor: "var(--border-soft)"}}>
         <div className="container-responsive py-6 text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between">
           <p>© {new Date().getFullYear()} GPdI Church. All rights reserved.</p>
           <p>Desain modern, ramah keluarga, dan aksesibel.</p>

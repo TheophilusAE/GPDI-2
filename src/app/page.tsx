@@ -16,7 +16,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-white"
+              className=""
             >
               Gereja yang Mengasihi Kota
             </motion.h1>
@@ -44,7 +44,7 @@ export default function Home() {
             transition={{ delay: 0.1, duration: 0.6 }}
             className="glass rounded-3xl p-6 card-hover"
           >
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[--color-primary]/20 to-[--color-secondary]/20 grid place-items-center text-slate-200">
+            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[--color-primary]/20 to-[--color-secondary]/20 grid place-items-center">
               <span className="text-sm">Video/Foto Gereja (placeholder)</span>
             </div>
           </motion.div>

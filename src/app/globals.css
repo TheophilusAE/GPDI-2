@@ -13,6 +13,9 @@
   --brand-secondary-700: #22c55e;
   --brand-accent: #fbbf24;
   --brand-white: #ffffff;
+  --border-soft: rgba(255,255,255,0.10);
+  --glass-bg: rgba(255,255,255,0.05);
+  --hover-overlay: rgba(255,255,255,0.06);
 }
 
 [data-theme="light"] {
@@ -27,6 +30,9 @@
   --brand-secondary-700: #15803d;
   --brand-accent: #d97706;
   --brand-white: #0b1020; /* contrast text on colored buttons stays dark in light? keep white text -> override in buttons */
+  --border-soft: rgba(0,0,0,0.10);
+  --glass-bg: rgba(0,0,0,0.05);
+  --hover-overlay: rgba(0,0,0,0.06);
 }
 
 @theme inline {
@@ -95,7 +101,9 @@ body {
 }
 
 .glass {
-  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_12px_40px_rgba(2,6,23,0.45)];
+  @apply backdrop-blur-md shadow-[0_12px_40px_rgba(2,6,23,0.45)];
+  background-color: var(--glass-bg);
+  border: 1px solid var(--border-soft);
 }
 
 .section-pad {
@@ -114,3 +122,9 @@ body {
 .divider {
   @apply h-px w-full bg-white/10;
 }
+
+/* Adaptive border utility */
+.border-soft { border: 1px solid var(--border-soft); }
+
+/* Adaptive hover background utility */
+.hover-overlay:hover { background-color: var(--hover-overlay); }

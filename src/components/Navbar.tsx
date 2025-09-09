@@ -33,7 +33,7 @@ export default function Navbar() {
   }, [theme]);
 
   return (
-    <header className="sticky top-0 z-40 bg-[color-mix(in_oklab,var(--surface)_70%,black_30%)]/60 backdrop-blur border-b border-white/10">
+    <header className="sticky top-0 z-40 backdrop-blur border-b" style={{backgroundColor: "color-mix(in oklab, var(--surface) 70%, transparent)", borderColor: "var(--border-soft)"}}>
       <div className="container-responsive flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-block h-8 w-8 rounded-full bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
@@ -70,7 +70,7 @@ export default function Navbar() {
           </button>
         </nav>
 
-        <button className="md:hidden p-2 rounded-md hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Buka menu" aria-expanded={open} aria-controls="mobile-nav">
+        <button className="md:hidden p-2 rounded-md hover-overlay" onClick={() => setOpen(true)} aria-label="Buka menu" aria-expanded={open} aria-controls="mobile-nav">
           <HiOutlineMenu size={22} />
         </button>
       </div>
@@ -78,7 +78,8 @@ export default function Navbar() {
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0 }}
-        className="md:hidden overflow-hidden border-t border-white/10"
+        className="md:hidden overflow-hidden border-t"
+        style={{borderColor: "var(--border-soft)"}}
         id="mobile-nav"
       >
         <div className="container-responsive py-3 space-y-2">
@@ -100,7 +101,7 @@ export default function Navbar() {
             </Link>
           </div>
           <button
-            className="mt-2 rounded-full p-2 hover:bg-white/5"
+            className="mt-2 rounded-full p-2 hover-overlay"
             aria-label="Toggle theme"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
