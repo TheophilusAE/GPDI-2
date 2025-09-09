@@ -33,10 +33,10 @@ export default function Navbar() {
   }, [theme]);
 
   return (
-    <header className="sticky top-0 z-40 backdrop-blur border-b" style={{backgroundColor: "color-mix(in oklab, var(--surface) 70%, transparent)", borderColor: "var(--border-soft)"}}>
+    <header className="sticky top-0 z-40 backdrop-blur border-b" style={{backgroundColor: "color-mix(in oklab, var(--surface) 75%, transparent)", borderColor: "var(--border-soft)"}}>
       <div className="container-responsive flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
-          <span className="inline-block h-8 w-8 rounded-full bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
+          <span className="inline-block h-8 w-8 rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
           <span className="font-semibold tracking-tight">GPdI Church</span>
         </Link>
 
@@ -48,20 +48,18 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 aria-current={isActive ? "page" : undefined}
-                className={`text-sm transition relative ${
+                className={`text-sm transition relative px-1 py-2 rounded-md hover-overlay ${
                   isActive ? "text-[--color-primary]" : "text-slate-200 hover:text-[--color-primary]"
                 }`}
               >
                 {item.label}
-                {isActive && (
-                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.5 w-6 bg-[--color-primary] rounded-full" />
-                )}
+                {isActive && <span className="absolute -bottom-[2px] left-1/2 -translate-x-1/2 h-[3px] w-6 bg-[--color-primary] rounded-full" />}
               </Link>
             );
           })}
           <Link href="#join" className="btn-primary">Bergabung</Link>
           <button
-            className="ml-2 rounded-full p-2 hover:bg-white/5"
+            className="ml-2 rounded-lg p-2 hover-overlay"
             aria-label="Toggle theme"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
@@ -90,7 +88,7 @@ export default function Navbar() {
               animate={{ opacity: open ? 1 : 0, y: open ? 0 : 8 }}
               transition={{ delay: open ? idx * 0.05 : 0 }}
             >
-              <Link href={item.href} className="block py-2 text-slate-200 hover:text-[--color-primary]" onClick={() => setOpen(false)}>
+              <Link href={item.href} className="block py-2 rounded-md hover-overlay text-slate-200 hover:text-[--color-primary]" onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             </motion.div>
@@ -101,7 +99,7 @@ export default function Navbar() {
             </Link>
           </div>
           <button
-            className="mt-2 rounded-full p-2 hover-overlay"
+            className="mt-2 rounded-lg p-2 hover-overlay"
             aria-label="Toggle theme"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >

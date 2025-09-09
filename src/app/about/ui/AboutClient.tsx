@@ -7,8 +7,8 @@ export default function AboutClient() {
     <main className="section-pad">
       <div className="container-responsive grid lg:grid-cols-2 gap-10 items-start">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold neon-text-secondary text-white">Tentang Kami</h1>
-          <p className="text-slate-300 mt-3">GPdI adalah gereja yang berfokus pada Firman, doa, dan misi.</p>
+          <h1 className="font-extrabold neon-text-secondary text-white">Tentang Kami</h1>
+          <p className="text-slate-300 mt-3 max-w-prose">GPdI adalah gereja yang berfokus pada Firman, doa, dan misi.</p>
           <div className="mt-6 space-y-4 text-slate-300">
             <p>Kami percaya kepada Yesus Kristus sebagai Tuhan dan Juruselamat.</p>
             <p>Kami melayani keluarga, anak-anak, pemuda, dan komunitas sekitar.</p>

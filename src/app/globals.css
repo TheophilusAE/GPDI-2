@@ -2,37 +2,37 @@
 
 /* Theme tokens using [data-theme] */
 [data-theme="dark"] {
-  --background: #0b1020;
-  --foreground: #ffffff;
-  --muted: #ffffff;
-  --surface: #0f152a;
-  --surface-2: #0d1326;
-  --brand-primary: #7c9cff;
-  --brand-primary-700: #5c7de6;
-  --brand-secondary: #4ade80;
-  --brand-secondary-700: #22c55e;
-  --brand-accent: #fbbf24;
+  --background: #0a0f17;
+  --foreground: #eef2f6;
+  --muted: #c9d1db;
+  --surface: #0e1521;
+  --surface-2: #0c121c;
+  --brand-primary: #8bb8ff;
+  --brand-primary-700: #6e9de6;
+  --brand-secondary: #7bd8b0;
+  --brand-secondary-700: #55c999;
+  --brand-accent: #ffd28a;
   --brand-white: #ffffff;
   --border-soft: rgba(255,255,255,0.10);
-  --glass-bg: rgba(255,255,255,0.05);
+  --glass-bg: rgba(255,255,255,0.045);
   --hover-overlay: rgba(255,255,255,0.06);
 }
 
 [data-theme="light"] {
-  --background: #ffffff;
-  --foreground: #0b1020;
-  --muted: #0b1020;
-  --surface: #f3f6fb;
-  --surface-2: #e9eef7;
-  --brand-primary: #3b5bdb; /* deeper indigo for light */
-  --brand-primary-700: #364fc7;
-  --brand-secondary: #16a34a;
-  --brand-secondary-700: #15803d;
-  --brand-accent: #d97706;
-  --brand-white: #0b1020; /* contrast text on colored buttons stays dark in light? keep white text -> override in buttons */
+  --background: #fafaf8;
+  --foreground: #0f1720;
+  --muted: #334155;
+  --surface: #f3f4f6;
+  --surface-2: #ebecef;
+  --brand-primary: #3758f9;
+  --brand-primary-700: #2f4ed6;
+  --brand-secondary: #2fb78a;
+  --brand-secondary-700: #269a74;
+  --brand-accent: #b7791f;
+  --brand-white: #ffffff;
   --border-soft: rgba(0,0,0,0.10);
-  --glass-bg: rgba(0,0,0,0.05);
-  --hover-overlay: rgba(0,0,0,0.06);
+  --glass-bg: rgba(255,255,255,0.6);
+  --hover-overlay: rgba(0,0,0,0.04);
 }
 
 @theme inline {
@@ -55,28 +55,28 @@
 
 body {
   background:
-    radial-gradient(900px 700px at 10% -10%, rgba(124,156,255,0.10), transparent 60%),
-    radial-gradient(1000px 750px at 120% 0%, rgba(74,222,128,0.10), transparent 60%),
+    radial-gradient(80rem 60rem at 10% -10%, color-mix(in oklab, var(--brand-primary) 12%, transparent), transparent 60%),
+    radial-gradient(85rem 62rem at 120% 0%, color-mix(in oklab, var(--brand-secondary) 12%, transparent), transparent 60%),
     var(--background);
   color: var(--foreground);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  line-height: 1.6;
+  line-height: 1.75;
 }
 
 /* Typography scale for comfort */
-:where(h1){ font-size: clamp(2rem, 2vw + 1.5rem, 3.25rem); font-weight: 800; letter-spacing: -0.02em; }
-:where(h2){ font-size: clamp(1.5rem, 1.2vw + 1rem, 2.25rem); font-weight: 700; letter-spacing: -0.01em; }
-:where(h3){ font-size: 1.25rem; font-weight: 600; }
-:where(p){ color: var(--muted); }
+::where(h1){ font-size: clamp(2.25rem, 2.2vw + 1.5rem, 3.5rem); font-weight: 800; letter-spacing: -0.02em; }
+::where(h2){ font-size: clamp(1.75rem, 1.3vw + 1rem, 2.5rem); font-weight: 700; letter-spacing: -0.01em; }
+::where(h3){ font-size: 1.125rem; font-weight: 600; }
+::where(p){ color: var(--muted); }
 
 /* Enforce white text across common elements */
-:where(p, span, li, h1, h2, h3, h4, h5, h6, small, a, button, label, input, textarea, select, strong, em) {
+::where(p, span, li, h1, h2, h3, h4, h5, h6, small, a, button, label, input, textarea, select, strong, em) {
   color: var(--foreground) !important;
 }
 
 /* Focus styles */
-:where(a, button, input, select, textarea):focus-visible {
+::where(a, button, input, select, textarea):focus-visible {
   outline: 2px solid color-mix(in oklab, var(--brand-primary) 70%, white 30%);
   outline-offset: 2px;
   border-radius: 0.5rem;
@@ -93,21 +93,21 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-white px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(124,156,255,0.35)] hover:shadow-[0_16px_40px_rgba(124,156,255,0.45)] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-xl bg-[--color-primary] text-white px-6 py-3 font-semibold shadow-sm hover:shadow-md active:scale-[0.99] transition;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-white px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(74,222,128,0.35)] hover:shadow-[0_16px_40px_rgba(74,222,128,0.45)] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-xl bg-[--color-secondary] text-white px-6 py-3 font-semibold shadow-sm hover:shadow-md active:scale-[0.99] transition;
 }
 
 .glass {
-  @apply backdrop-blur-md shadow-[0_12px_40px_rgba(2,6,23,0.45)];
-  background-color: var(--glass-bg);
+  @apply backdrop-blur-lg shadow-md;
+  background-color: color-mix(in oklab, var(--glass-bg) 85%, transparent);
   border: 1px solid var(--border-soft);
 }
 
 .section-pad {
-  @apply py-16 sm:py-24;
+  @apply py-14 sm:py-20;
 }
 
 .neon-text-primary { text-shadow: 0 4px 16px rgba(124,156,255,0.45); }
@@ -115,7 +115,7 @@ body {
 
 /* Card hover lift */
 .card-hover {
-  @apply transition-transform duration-300 ease-out will-change-transform hover:-translate-y-1;
+  @apply transition-transform duration-300 ease-out will-change-transform hover:-translate-y-0.5;
 }
 
 /* Soft divider */

@@ -6,7 +6,7 @@ export default function EventsClient() {
   return (
     <main className="section-pad">
       <div className="container-responsive">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white neon-text-secondary">Acara</h1>
+        <h1 className="font-extrabold text-white neon-text-secondary">Acara</h1>
         <div className="mt-8 grid gap-6 sm:grid-cols-2">
           {[1, 2, 3, 4].map((n, i) => (
             <motion.div key={n} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="glass rounded-2xl p-6">

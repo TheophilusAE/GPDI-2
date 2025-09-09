@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero */}
       <section className="relative section-pad overflow-hidden">
         <div className="absolute inset-0 -z-10" />
-        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gradient-to-br from-[--color-primary]/25 to-[--color-secondary]/25 blur-3xl" />
+        <div className="absolute -top-24 -right-24 h-96 w-96 rounded-full bg-gradient-to-br from-[--color-primary]/20 to-[--color-secondary]/20 blur-3xl" />
         <div className="container-responsive grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <motion.h1
@@ -32,7 +32,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="mt-8 flex gap-4"
+              className="mt-8 flex gap-3 flex-wrap"
             >
               <Link href="#join" className="btn-primary">Hadiri Ibadah</Link>
               <Link href="/about" className="btn-secondary">Pelajari Kami</Link>
@@ -66,7 +66,7 @@ export default function Home() {
                 transition={{ delay: i * 0.05 }}
                 className="glass rounded-2xl p-6 card-hover"
               >
-                <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-[--color-primary] to-[--color-secondary] mb-4" />
+                <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-[--color-primary] to-[--color-secondary] mb-3" />
                 <h3 className="font-medium">{name}</h3>
                 <p className="text-sm text-slate-300 mt-1">Deskripsi singkat pelayanan {name.toLowerCase()}.</p>
               </motion.div>
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="container-responsive text-center">
           <h2 className="">Mari Bergabung</h2>
           <p className="mt-2 text-slate-300">Kami menantikan kehadiran Anda minggu ini.</p>
-          <div className="mt-6 inline-flex gap-3">
+          <div className="mt-6 inline-flex gap-3 flex-wrap justify-center">
             <Link href="/contact" className="btn-primary">Hubungi Kami</Link>
             <Link href="/events" className="btn-secondary">Lihat Jadwal</Link>
           </div>

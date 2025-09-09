@@ -13,7 +13,7 @@ export default function MinistriesClient() {
   return (
     <main className="section-pad">
       <div className="container-responsive">
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white neon-text-secondary">Pelayanan</h1>
+        <h1 className="font-extrabold text-white neon-text-secondary">Pelayanan</h1>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((it, i) => (
             <motion.div key={it.title} initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }} className="glass rounded-2xl p-6">

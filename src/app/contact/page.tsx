@@ -7,7 +7,7 @@ export default function ContactPage() {
     <main className="section-pad">
       <div className="container-responsive grid lg:grid-cols-2 gap-10">
         <div>
-          <h1 className="text-3xl sm:text-4xl font-extrabold text-white neon-text-secondary">Kontak</h1>
+          <h1 className="font-extrabold text-white neon-text-secondary">Kontak</h1>
           <p className="text-slate-300 mt-3">Silakan tinggalkan pesan, kami akan segera membalas.</p>
           <form className="mt-6 space-y-4">
             <input className="w-full rounded-xl border border-white/10 bg-white/5 text-white placeholder:text-slate-400 px-4 py-3" placeholder="Nama" />
