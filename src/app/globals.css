@@ -3,8 +3,8 @@
 :root {
   /* Calm, modern palette with strong contrast */
   --background: #0b1020; /* deep navy */
-  --foreground: #e6edf3; /* light foreground */
-  --muted: #a5b4c3; /* muted text */
+  --foreground: #ffffff; /* all text white */
+  --muted: #ffffff; /* all text white */
   --surface: #0f152a; /* card surface */
   --surface-2: #0d1326; /* darker surface */
   --brand-primary: #7c9cff; /* soft indigo */
@@ -49,6 +49,11 @@ body {
 :where(h3){ font-size: 1.25rem; font-weight: 600; }
 :where(p){ color: var(--muted); }
 
+/* Enforce white text across common elements */
+:where(p, span, li, h1, h2, h3, h4, h5, h6, small, a, button, label, input, textarea, select, strong, em) {
+  color: var(--foreground) !important;
+}
+
 /* Focus styles */
 :where(a, button, input, select, textarea):focus-visible {
   outline: 2px solid color-mix(in oklab, var(--brand-primary) 70%, white 30%);
@@ -67,11 +72,11 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-black px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(124,156,255,0.35)] hover:shadow-[0_16px_40px_rgba(124,156,255,0.45)] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-white px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(124,156,255,0.35)] hover:shadow-[0_16px_40px_rgba(124,156,255,0.45)] active:scale-[0.98] transition;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-black px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(74,222,128,0.35)] hover:shadow-[0_16px_40px_rgba(74,222,128,0.45)] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-white px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(74,222,128,0.35)] hover:shadow-[0_16px_40px_rgba(74,222,128,0.45)] active:scale-[0.98] transition;
 }
 
 .glass {
