@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
@@ -16,25 +17,43 @@ const navItems = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 bg-black/30 backdrop-blur border-b border-white/10">
+    <header className="sticky top-0 z-40 bg-[color-mix(in_oklab,var(--surface)_70%,black_30%)]/60 backdrop-blur border-b border-white/10">
       <div className="container-responsive flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2">
           <span className="inline-block h-8 w-8 rounded-full bg-gradient-to-br from-[--color-primary] to-[--color-secondary]" />
-          <span className="font-semibold tracking-tight neon-text-secondary">GPdI Church</span>
+          <span className="font-semibold tracking-tight">GPdI Church</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-slate-200 hover:text-[--color-primary] transition">
-              {item.label}
-            </Link>
-          ))}
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`text-sm transition relative ${
+                  isActive ? "text-[--color-primary]" : "text-slate-200 hover:text-[--color-primary]"
+                }`}
+              >
+                {item.label}
+                {isActive && (
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.5 w-6 bg-[--color-primary] rounded-full" />
+                )}
+              </Link>
+            );
+          })}
           <Link href="#join" className="btn-primary">Bergabung</Link>
         </nav>
 
-        <button className="md:hidden p-2 rounded-md hover:bg-black/5" onClick={() => setOpen(true)} aria-label="Buka menu">
+        <button className="md:hidden p-2 rounded-md hover:bg-white/5" onClick={() => setOpen(true)} aria-label="Buka menu" aria-expanded={open} aria-controls="mobile-nav">
           <HiOutlineMenu size={22} />
         </button>
       </div>
@@ -42,7 +61,8 @@ export default function Navbar() {
       <motion.div
         initial={false}
         animate={{ height: open ? "auto" : 0 }}
-        className="md:hidden overflow-hidden border-t border-white/30"
+        className="md:hidden overflow-hidden border-t border-white/10"
+        id="mobile-nav"
       >
         <div className="container-responsive py-3 space-y-2">
           {navItems.map((item, idx) => (
@@ -52,7 +72,7 @@ export default function Navbar() {
               animate={{ opacity: open ? 1 : 0, y: open ? 0 : 8 }}
               transition={{ delay: open ? idx * 0.05 : 0 }}
             >
-              <Link href={item.href} className="block py-2" onClick={() => setOpen(false)}>
+              <Link href={item.href} className="block py-2 text-slate-200 hover:text-[--color-primary]" onClick={() => setOpen(false)}>
                 {item.label}
               </Link>
             </motion.div>

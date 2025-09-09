@@ -16,7 +16,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl sm:text-6xl font-extrabold tracking-tight text-white neon-text-secondary"
+              className="text-white"
             >
               Gereja yang Mengasihi Kota
             </motion.h1>
@@ -42,7 +42,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1, duration: 0.6 }}
-            className="glass rounded-3xl p-6"
+            className="glass rounded-3xl p-6 card-hover"
           >
             <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[--color-primary]/20 to-[--color-secondary]/20 grid place-items-center text-slate-200">
               <span className="text-sm">Video/Foto Gereja (placeholder)</span>
@@ -54,8 +54,8 @@ export default function Home() {
       {/* Ministries */}
       <section className="section-pad">
         <div className="container-responsive">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Pelayanan Kami</h2>
-          <p className="text-slate-600 mt-2 max-w-2xl">Berbagai pelayanan untuk semua kalangan usia.</p>
+          <h2 className="">Pelayanan Kami</h2>
+          <p className="mt-2 max-w-2xl">Berbagai pelayanan untuk semua kalangan usia.</p>
           <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {["Anak", "Pemuda", "Keluarga", "Misi", "Komsel", "Doa"].map((name, i) => (
               <motion.div
@@ -64,11 +64,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="glass rounded-2xl p-6"
+                className="glass rounded-2xl p-6 card-hover"
               >
-                <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-[--brand-red-600] to-[--brand-blue-600] mb-4" />
+                <div className="h-14 w-14 rounded-xl bg-gradient-to-br from-[--color-primary] to-[--color-secondary] mb-4" />
                 <h3 className="font-medium">{name}</h3>
-                <p className="text-sm text-slate-600 mt-1">Deskripsi singkat pelayanan {name.toLowerCase()}.</p>
+                <p className="text-sm text-slate-300 mt-1">Deskripsi singkat pelayanan {name.toLowerCase()}.</p>
               </motion.div>
             ))}
           </div>
@@ -76,15 +76,15 @@ export default function Home() {
       </section>
 
       {/* Events */}
-      <section className="section-pad bg-gradient-to-b from-white to-slate-50">
+      <section className="section-pad bg-[--surface-2]">
         <div className="container-responsive">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Acara Mendatang</h2>
+          <h2 className="">Acara Mendatang</h2>
           <div className="mt-8 grid gap-6 sm:grid-cols-2">
             {[1, 2].map((n) => (
-              <motion.div key={n} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass rounded-2xl p-6">
-                <p className="text-xs text-slate-500">Minggu, 10:30 WIB</p>
+              <motion.div key={n} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="glass rounded-2xl p-6 card-hover">
+                <p className="text-xs text-slate-400">Minggu, 10:30 WIB</p>
                 <h3 className="font-medium mt-1">Ibadah Raya GPdI</h3>
-                <p className="text-sm text-slate-600 mt-1">Ibadah raya dengan pujian penyembahan dan Firman Tuhan.</p>
+                <p className="text-sm text-slate-300 mt-1">Ibadah raya dengan pujian penyembahan dan Firman Tuhan.</p>
                 <div className="mt-4"><Link href="#" className="btn-secondary">Detail</Link></div>
               </motion.div>
             ))}
@@ -95,8 +95,8 @@ export default function Home() {
       {/* CTA */}
       <section id="join" className="section-pad">
         <div className="container-responsive text-center">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Mari Bergabung</h2>
-          <p className="text-slate-600 mt-2">Kami menantikan kehadiran Anda minggu ini.</p>
+          <h2 className="">Mari Bergabung</h2>
+          <p className="mt-2 text-slate-300">Kami menantikan kehadiran Anda minggu ini.</p>
           <div className="mt-6 inline-flex gap-3">
             <Link href="/contact" className="btn-primary">Hubungi Kami</Link>
             <Link href="/events" className="btn-secondary">Lihat Jadwal</Link>

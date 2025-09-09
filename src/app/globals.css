@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Cyberpunk neon palette */
-  --background: #0b0f1a; /* deep dark */
-  --foreground: #e2e8f0; /* slate-200 */
-  --brand-primary: #ff00e5; /* neon magenta */
-  --brand-primary-700: #cc00b8;
-  --brand-secondary: #00e5ff; /* neon cyan */
-  --brand-secondary-700: #00b3cc;
-  --brand-accent: #ffe600; /* neon yellow */
+  /* Calm, modern palette with strong contrast */
+  --background: #0b1020; /* deep navy */
+  --foreground: #e6edf3; /* light foreground */
+  --muted: #a5b4c3; /* muted text */
+  --surface: #0f152a; /* card surface */
+  --surface-2: #0d1326; /* darker surface */
+  --brand-primary: #7c9cff; /* soft indigo */
+  --brand-primary-700: #5c7de6;
+  --brand-secondary: #4ade80; /* soft green for friendliness */
+  --brand-secondary-700: #22c55e;
+  --brand-accent: #fbbf24; /* warm accent */
   --brand-white: #ffffff;
 }
 
@@ -24,18 +27,38 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #060912; /* darker */
+    --background: #0a0f21;
     --foreground: #f8fafc;
   }
 }
 
 body {
-  background: radial-gradient(1200px 800px at 10% 0%, rgba(255,0,229,0.06), transparent 60%),
-    radial-gradient(1200px 800px at 90% 20%, rgba(0,229,255,0.06), transparent 60%),
+  background:
+    radial-gradient(900px 700px at 10% -10%, rgba(124,156,255,0.10), transparent 60%),
+    radial-gradient(1000px 750px at 120% 0%, rgba(74,222,128,0.10), transparent 60%),
     var(--background);
   color: var(--foreground);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
     Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.6;
+}
+
+/* Typography scale for comfort */
+:where(h1){ font-size: clamp(2rem, 2vw + 1.5rem, 3.25rem); font-weight: 800; letter-spacing: -0.02em; }
+:where(h2){ font-size: clamp(1.5rem, 1.2vw + 1rem, 2.25rem); font-weight: 700; letter-spacing: -0.01em; }
+:where(h3){ font-size: 1.25rem; font-weight: 600; }
+:where(p){ color: var(--muted); }
+
+/* Focus styles */
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--brand-primary) 70%, white 30%);
+  outline-offset: 2px;
+  border-radius: 0.5rem;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
 /* Utilities */
@@ -44,20 +67,30 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-black px-6 py-3 font-semibold shadow-[0_0_25px_rgba(255,0,229,0.45)] hover:shadow-[0_0_35px_rgba(255,0,229,0.7)] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-full bg-[--color-primary] text-black px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(124,156,255,0.35)] hover:shadow-[0_16px_40px_rgba(124,156,255,0.45)] active:scale-[0.98] transition;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-black px-6 py-3 font-semibold shadow-[0_0_25px_rgba(0,229,255,0.45)] hover:shadow-[0_0_35px_rgba(0,229,255,0.7)] active:scale-[0.98] transition;
+  @apply inline-flex items-center justify-center rounded-full bg-[--color-secondary] text-black px-6 py-3 font-semibold shadow-[0_10px_30px_rgba(74,222,128,0.35)] hover:shadow-[0_16px_40px_rgba(74,222,128,0.45)] active:scale-[0.98] transition;
 }
 
 .glass {
-  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.06)];
+  @apply bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_12px_40px_rgba(2,6,23,0.45)];
 }
 
 .section-pad {
-  @apply py-20 sm:py-28;
+  @apply py-16 sm:py-24;
 }
 
-.neon-text-primary { text-shadow: 0 0 8px rgba(255,0,229,0.6), 0 0 22px rgba(255,0,229,0.4); }
-.neon-text-secondary { text-shadow: 0 0 8px rgba(0,229,255,0.6), 0 0 22px rgba(0,229,255,0.4); }
+.neon-text-primary { text-shadow: 0 4px 16px rgba(124,156,255,0.45); }
+.neon-text-secondary { text-shadow: 0 4px 16px rgba(74,222,128,0.45); }
+
+/* Card hover lift */
+.card-hover {
+  @apply transition-transform duration-300 ease-out will-change-transform hover:-translate-y-1;
+}
+
+/* Soft divider */
+.divider {
+  @apply h-px w-full bg-white/10;
+}
